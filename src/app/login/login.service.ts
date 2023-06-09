@@ -13,11 +13,11 @@ export class LoginService {
     return [
 
       {
-        label: 'Auditor',
+        label: 'AUDITOR',
         value: '01'
       },
       {
-        label: 'Operador',
+        label: 'OPERADOR',
         value: '02'
       }
 
