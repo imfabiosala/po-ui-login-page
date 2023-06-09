@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+input.po-input {
+    --color: #b6bdbf;
+    --color-hover: #66afe9;
+    --background: #fbfbfb;
+    --background-hover: #fbfbfb;
+    --color-focused: #66afe9;
+    --outline-color-focused: transparent;
+    --padding: 0 16px;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  input.po-input:focus,
+  input.po-input:hover {
+    box-shadow: #d2e6f6 0 1px 8px 0;
+  }
