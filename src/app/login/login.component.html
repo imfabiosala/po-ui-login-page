@@ -1,0 +1,48 @@
+<po-login
+    #username
+    class="po-sm-12"
+    name="username"
+    p-label="Usuário"
+    p-required="true"
+    [(ngModel)]="inputUsername"
+    [p-auto-focus]="true"
+></po-login>
+
+<po-password
+    #password
+    class="po-sm-12"
+    name="password"
+    p-label="Senha"
+    p-required="true"
+    [(ngModel)]="inputPassword"
+></po-password>
+
+<po-select
+    #company
+    class="po-sm-6"
+    name="company"
+    p-label="Empresa"
+    [ngModel]="inputCompany"
+    (ngModelChange)="inputCompany = $event"
+    (p-change)="resetBranchOptionSelected();getBranchOptions($event)"
+    [p-options]="companyOptions"
+></po-select>
+
+<po-select
+    #branch
+    class="po-sm-6"
+    name="branch"
+    p-label="Filial"
+    [ngModel]="inputBranch"
+    (ngModelChange)="inputBranch = $event"
+    [p-disabled]="selectBranchIsDisabled"
+    [p-options]="branchOptions"
+></po-select>
+
+<po-button
+    class="po-sm-12"
+    p-label="Entrar"
+    p-kind="primary"
+    (p-click)="loginSubmit()"
+    [p-danger]="true"
+></po-button>
