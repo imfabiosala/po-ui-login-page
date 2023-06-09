@@ -19,6 +19,17 @@
 
                 <form [formGroup]="loginForm">
 
+                    <po-select
+                        #userType
+                        class="po-sm-12"
+                        formControlName="userType"
+                        name="userType"
+                        p-placeholder="Tipo de Usuário"
+                        [ngModel]="inputUserType"
+                        (ngModelChange)="inputUserType = $event"
+                        [p-options]="userTypeOptions"
+                    ></po-select>
+
                     <po-login
                         #username
                         class="po-sm-12"
@@ -27,7 +38,6 @@
                         p-placeholder="Usuário"
                         p-required="true"
                         [(ngModel)]="inputUsername"
-                        [p-auto-focus]="true"
                     ></po-login>
 
                     <po-password

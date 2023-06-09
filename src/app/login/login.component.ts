@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
 
   loginForm!: UntypedFormGroup;
 
+  userTypeOptions: any = this.getUserTypeOptions();
+
   companyOptions: any = this.getCompanyOptions();
 
   selectBranchIsDisabled: boolean = true;
@@ -32,6 +34,7 @@ export class LoginComponent implements OnInit {
 
   buttonSubmitIsDisabled: boolean = true;
 
+  inputUserType: string = "";
   inputUsername: string = "";
   inputPassword: string = "";
   inputCompany: string = "";
@@ -41,12 +44,19 @@ export class LoginComponent implements OnInit {
 
     this.loginForm = this.ufb.group({
 
+      userType: ['', Validators.compose([Validators.required, Validators.minLength(1), Validators.maxLength(2)])],
       username: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(16)])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(32)])],
       company: ['', Validators.compose([Validators.required, Validators.minLength(1), Validators.maxLength(2)])],
       branch: ['', Validators.compose([Validators.required, Validators.minLength(1), Validators.maxLength(2)])]
 
     });
+
+  };
+
+  getUserTypeOptions() {
+
+    return this.loginService.getUserTypes();
 
   };
 
@@ -87,6 +97,7 @@ export class LoginComponent implements OnInit {
 
   loginSubmit() {
 
+    console.log(this.inputUserType);
     console.log(this.inputUsername);
     console.log(this.inputPassword);
     console.log(this.inputCompany);

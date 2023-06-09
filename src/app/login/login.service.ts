@@ -8,6 +8,23 @@ export class LoginService {
 
   constructor() { }
 
+  getUserTypes() {
+
+    return [
+
+      {
+        label: 'Auditor',
+        value: '01'
+      },
+      {
+        label: 'Operador',
+        value: '02'
+      }
+
+    ];
+
+  };
+
   getCompanies() {
 
     return [
