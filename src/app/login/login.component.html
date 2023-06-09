@@ -17,55 +17,63 @@
 
                 </header>
 
-                <po-login
-                    #username
-                    class="po-sm-12"
-                    name="username"
-                    p-placeholder="Usuário"
-                    p-required="true"
-                    [(ngModel)]="inputUsername"
-                    [p-auto-focus]="true"
-                ></po-login>
+                <form [formGroup]="loginForm">
 
-                <po-password
-                    #password
-                    class="po-sm-12"
-                    name="password"
-                    p-placeholder="Senha"
-                    p-required="true"
-                    [(ngModel)]="inputPassword"
-                ></po-password>
+                    <po-login
+                        #username
+                        class="po-sm-12"
+                        formControlName="username"
+                        name="username"
+                        p-placeholder="Usuário"
+                        p-required="true"
+                        [(ngModel)]="inputUsername"
+                        [p-auto-focus]="true"
+                    ></po-login>
 
-                <po-select
-                    #company
-                    class="po-sm-6"
-                    name="company"
-                    p-placeholder="Empresa"
-                    [ngModel]="inputCompany"
-                    (ngModelChange)="inputCompany = $event"
-                    (p-change)="resetBranchOptionSelected();getBranchOptions($event)"
-                    [p-options]="companyOptions"
-                ></po-select>
+                    <po-password
+                        #password
+                        class="po-sm-12"
+                        formControlName="password"
+                        name="password"
+                        p-placeholder="Senha"
+                        p-required="true"
+                        [(ngModel)]="inputPassword"
+                    ></po-password>
 
-                <po-select
-                    #branch
-                    class="po-sm-6"
-                    name="branch"
-                    p-placeholder="Filial"
-                    [ngModel]="inputBranch"
-                    (ngModelChange)="inputBranch = $event"
-                    [p-disabled]="selectBranchIsDisabled"
-                    [p-options]="branchOptions"
-                ></po-select>
+                    <po-select
+                        #company
+                        class="po-sm-6"
+                        formControlName="company"
+                        name="company"
+                        p-placeholder="Empresa"
+                        [ngModel]="inputCompany"
+                        (ngModelChange)="inputCompany = $event"
+                        (p-change)="resetBranchOptionSelected();getBranchOptions($event)"
+                        [p-options]="companyOptions"
+                    ></po-select>
 
-                <po-button
-                    class="po-sm-12"
-                    [p-disabled]="buttonSubmitIsDisabled"
-                    p-label="Entrar"
-                    p-kind="primary"
-                    (p-click)="loginSubmit()"
-                    [p-danger]="true"
-                ></po-button>
+                    <po-select
+                        #branch
+                        class="po-sm-6"
+                        formControlName="branch"
+                        name="branch"
+                        p-placeholder="Filial"
+                        [ngModel]="inputBranch"
+                        (ngModelChange)="inputBranch = $event"
+                        [p-disabled]="selectBranchIsDisabled"
+                        [p-options]="branchOptions"
+                    ></po-select>
+
+                    <po-button
+                        class="po-sm-12"
+                        [p-disabled]="!loginForm.valid"
+                        p-label="Entrar"
+                        p-kind="primary"
+                        (p-click)="loginSubmit()"
+                        [p-danger]="true"
+                    ></po-button>
+
+                </form>
 
             </div>
         </div>

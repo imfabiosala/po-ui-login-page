@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+
 import { LoginService } from './login.service';
 
 @Component({
@@ -11,10 +13,17 @@ import { LoginService } from './login.service';
 export class LoginComponent implements OnInit {
 
   constructor(
+    private ufb: UntypedFormBuilder,
     private loginService: LoginService
-  ) { }
+  ) {
+
+    this.createLoginForm();
+
+  }
 
   ngOnInit(): void { }
+
+  loginForm!: UntypedFormGroup;
 
   companyOptions: any = this.getCompanyOptions();
 
@@ -27,6 +36,19 @@ export class LoginComponent implements OnInit {
   inputPassword: string = "";
   inputCompany: string = "";
   inputBranch: string = "";
+
+  createLoginForm() {
+
+    this.loginForm = this.ufb.group({
+
+      username: ['', Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(16)])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(32)])],
+      company: ['', Validators.compose([Validators.required, Validators.minLength(1), Validators.maxLength(2)])],
+      branch: ['', Validators.compose([Validators.required, Validators.minLength(1), Validators.maxLength(2)])]
+
+    });
+
+  };
 
   getCompanyOptions() {
 
