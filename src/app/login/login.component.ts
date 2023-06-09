@@ -21,6 +21,8 @@ export class LoginComponent implements OnInit {
   selectBranchIsDisabled: boolean = true;
   branchOptions: any;
 
+  buttonSubmitIsDisabled: boolean = true;
+
   inputUsername: string = "";
   inputPassword: string = "";
   inputCompany: string = "";
