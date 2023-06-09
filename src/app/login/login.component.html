@@ -1,48 +1,73 @@
-<po-login
-    #username
-    class="po-sm-12"
-    name="username"
-    p-label="Usuário"
-    p-required="true"
-    [(ngModel)]="inputUsername"
-    [p-auto-focus]="true"
-></po-login>
+<div class="po-page-login-container">
+    <div class="po-page-login-panel">
+        <div class="po-page-login-body">
+            <div class="po-page-login-panel-content">
+                
+                <header class="po-page-login-header">
 
-<po-password
-    #password
-    class="po-sm-12"
-    name="password"
-    p-label="Senha"
-    p-required="true"
-    [(ngModel)]="inputPassword"
-></po-password>
+                    <h1 class="po-mb-md-4 po-mb-sm-1">
+                        <div class="po-page-login-header-product-name">
+                            Inventário de Estoque
+                        </div>
+                    </h1>
 
-<po-select
-    #company
-    class="po-sm-6"
-    name="company"
-    p-label="Empresa"
-    [ngModel]="inputCompany"
-    (ngModelChange)="inputCompany = $event"
-    (p-change)="resetBranchOptionSelected();getBranchOptions($event)"
-    [p-options]="companyOptions"
-></po-select>
+                    <div class="po-page-login-header-welcome po-mb-md-4 po-mb-sm-2">
+                        Autenticação
+                    </div>
 
-<po-select
-    #branch
-    class="po-sm-6"
-    name="branch"
-    p-label="Filial"
-    [ngModel]="inputBranch"
-    (ngModelChange)="inputBranch = $event"
-    [p-disabled]="selectBranchIsDisabled"
-    [p-options]="branchOptions"
-></po-select>
+                </header>
 
-<po-button
-    class="po-sm-12"
-    p-label="Entrar"
-    p-kind="primary"
-    (p-click)="loginSubmit()"
-    [p-danger]="true"
-></po-button>
+                <po-login
+                    #username
+                    class="po-sm-12"
+                    name="username"
+                    p-placeholder="Usuário"
+                    p-required="true"
+                    [(ngModel)]="inputUsername"
+                    [p-auto-focus]="true"
+                ></po-login>
+
+                <po-password
+                    #password
+                    class="po-sm-12"
+                    name="password"
+                    p-placeholder="Senha"
+                    p-required="true"
+                    [(ngModel)]="inputPassword"
+                ></po-password>
+
+                <po-select
+                    #company
+                    class="po-sm-6"
+                    name="company"
+                    p-placeholder="Empresa"
+                    [ngModel]="inputCompany"
+                    (ngModelChange)="inputCompany = $event"
+                    (p-change)="resetBranchOptionSelected();getBranchOptions($event)"
+                    [p-options]="companyOptions"
+                ></po-select>
+
+                <po-select
+                    #branch
+                    class="po-sm-6"
+                    name="branch"
+                    p-placeholder="Filial"
+                    [ngModel]="inputBranch"
+                    (ngModelChange)="inputBranch = $event"
+                    [p-disabled]="selectBranchIsDisabled"
+                    [p-options]="branchOptions"
+                ></po-select>
+
+                <po-button
+                    class="po-sm-12"
+                    [p-disabled]="buttonSubmitIsDisabled"
+                    p-label="Entrar"
+                    p-kind="primary"
+                    (p-click)="loginSubmit()"
+                    [p-danger]="true"
+                ></po-button>
+
+            </div>
+        </div>
+    </div>
+</div>
