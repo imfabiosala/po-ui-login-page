@@ -1,27 +1,26 @@
-# PoUiLoginPage
+# PO-UI Login Page
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.11.
+Este projeto trata-se apenas de um "laboratório" de testes para o desenvolvimento de uma tela de login.
 
-## Development server
+### Tecnologias Utilizadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular 14.2.11
+- PO-UI 14.12.2
 
-## Code scaffolding
+## Cópia do Projeto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Este projeto pode ser obtido utilizando os comandos abaixo:
 
-## Build
+`git clone https://github.com/imfabiosala/po-ui-login-page`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+`cd po-ui-login-page`
 
-## Running unit tests
+`npm i`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`ng serve -o`
 
-## Running end-to-end tests
+### Imagens
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![Imagem 001](https://github.com/imfabiosala/po-ui-login-page/blob/master/screens/screen-001.png)
+![Imagem 002](https://github.com/imfabiosala/po-ui-login-page/blob/master/screens/screen-002.png)
+![Imagem 003](https://github.com/imfabiosala/po-ui-login-page/blob/master/screens/screen-003.png)
