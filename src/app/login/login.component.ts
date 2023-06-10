@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
+import { PoNotificationService } from '@po-ui/ng-components';
+
 import { LoginService } from './login.service';
+
+import { Login } from './login';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +18,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private ufb: UntypedFormBuilder,
+    private poNotificationService: PoNotificationService,
     private loginService: LoginService
   ) {
 
@@ -97,11 +102,25 @@ export class LoginComponent implements OnInit {
 
   loginSubmit() {
 
-    console.log(this.inputUserType);
-    console.log(this.inputUsername);
-    console.log(this.inputPassword);
-    console.log(this.inputCompany);
-    console.log(this.inputBranch);
+    let login:Login = {
+
+      userType:this.inputUserType,
+      username:this.inputUsername,
+      password:this.inputPassword,
+      company:this.inputCompany,
+      branch:this.inputBranch
+
+    };
+
+    if (this.loginService.auth(login)) {
+
+      this.poNotificationService.success('Login efetuado com sucesso!');
+
+    } else {
+
+      this.poNotificationService.error('Credenciais inválidas!');
+
+    };
 
   };
 
